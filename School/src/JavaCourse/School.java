@@ -9,13 +9,8 @@ public class School {
     private Scanner scanner = new Scanner(System.in);
     private final String name;
 
-    public School(String name, int currentYear, int currentMonth) {
+    public School(String name) {
         this.name = name;
-        for(Student s: students) {
-            if(currentYear>=s.getYear() && currentMonth>=7) {
-                System.out.println(s.getName()+""+s.getSurname()+" graduated.");
-            }
-        }
     }
 
     public String registerStudent() {
