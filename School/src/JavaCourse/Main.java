@@ -22,6 +22,7 @@ public class Main {
             for(Student s: School.students) {
                 if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
+                    school.dispel(s.getName());
                 }
             }
             System.out.println("Enter action: "); int action = scanner.nextInt(); scanner.nextLine();
@@ -57,6 +58,7 @@ public class Main {
             for(Student s: School.students) {
                 if(now.getYear()>=s.getYear() && now.getMonth()>=7) {
                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
+                    school.dispel(s.getName());
                 }
             }
             System.out.println("Enter action: "); int action = scanner.nextInt();
