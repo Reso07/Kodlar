@@ -56,7 +56,7 @@ public class Main {
         instructions2();
         while(!quit) {
             for(Student s: School.students) {
-                if(now.getYear()>=s.getYear() && now.getMonth()>=7) {
+                if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
                     school.dispel(s.getName());
                 }
