@@ -4,7 +4,7 @@ import java.util.*;
 
 public class School {
     public static List<Lesson> allClasses = new Vector<>();
-    private static List<Student> students = new Vector<>();
+    protected static List<Student> students = new Vector<>();
     private static List<Staff> staff = new Vector<>();
     private Scanner scanner = new Scanner(System.in);
     private final String name;
