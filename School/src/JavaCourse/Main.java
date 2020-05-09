@@ -14,10 +14,15 @@ public class Main {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         System.out.println(dtf.format(now));
-        School school = new School("RC",now.getYear(),now.getMonthValue());
+        School school = new School("Robert College");
         boolean quit = false;
         instructions1();
         while(!quit) {
+            for(Student s: School.students) {
+                 if(now.getYear()>=s.getYear() && now.getMonth()>=7) {
+                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
+                 }
+            }
             System.out.println("Enter action: "); int action = scanner.nextInt(); scanner.nextLine();
             switch(action) {
                 case 0:
@@ -48,6 +53,11 @@ public class Main {
         quit = false;
         instructions2();
         while(!quit) {
+            for(Student s: students) {
+                 if(now.getYear()>=s.getYear() && now.getMonth()>=7) {
+                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
+                 }
+            }
             System.out.println("Enter action: "); int action = scanner.nextInt();
             switch (action) {
                 case 0:
