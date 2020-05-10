@@ -3,8 +3,8 @@ package JavaCourse;
 import java.util.*;
 
 public class School {
-    public static List<Lesson> allClasses = new Vector<>();
-    protected static List<Student> students = new Vector<>();
+    private static List<Lesson> allClasses = new Vector<>();
+    private static List<Student> students = new Vector<>();
     private static List<Staff> staff = new Vector<>();
     private Scanner scanner = new Scanner(System.in);
     private final String name;
@@ -12,6 +12,12 @@ public class School {
     public School(String name) {
         this.name = name;
     }
+    
+    protected List<Student> getStudents() { return students; }
+
+    protected List<Staff> getStaff() { return staff; }
+
+    protected List<Lesson> getAllClasses() { return allClasses; }
 
     public String registerStudent() {
         System.out.print("Name: "); String name = scanner.nextLine();
