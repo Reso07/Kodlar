@@ -1,7 +1,5 @@
 package com.wizard;
 
-import Location.Location;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
