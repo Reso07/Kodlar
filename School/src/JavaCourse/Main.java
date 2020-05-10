@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static ArrayList<Account> accountList = new ArrayList<>();
+    private static LocalDateTime now = LocalDateTime.now();
 
     public static void main(String[] args) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
         System.out.println(dtf.format(now));
         School school = new School("Robert College");
         boolean quit = false;
@@ -124,7 +124,8 @@ final class Account {
     public final void storePassword() {
         System.out.println("Storing your password as " + encryptedPassword);
     }
-
+    
+// This function is currently not used. Further improvements will involve the usage of this function
     public boolean login(int password) {
         if(encrypt(password) == this.encryptedPassword) {
             System.out.println("Successfully logged into " + password);
