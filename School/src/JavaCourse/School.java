@@ -103,4 +103,13 @@ public class School {
             System.out.println("ERROR");
         }
     }
+    
+    protected void giveRaise() {
+        System.out.print("Enter teacher name: "); String name = scanner.nextLine();
+        System.out.print("Enter raise amount: "); long amount = scanner.nextLong(); scanner.nextLine();
+        if(findTeacher(name)!=null) {
+            findTeacher(name).setSalary(findTeacher(name).getSalary()+amount);
+        } else {
+            System.out.println("Staff member not found.");
+    }
 }
