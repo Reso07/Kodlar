@@ -9,6 +9,8 @@ public class Staff<T> {
     }
 
     public void setSalary(long amount) {
+        // Bunu constructorda belirlemedik ki School'a bir giveRaise() metodu ekleyip herhangi bir staffin setSalary'sini çağırarak
+        // maaşını değiştirebiliriz.
         this.salary = amount;
     }
 
