@@ -63,6 +63,8 @@ public class Main {
                     }
                     break;
                 case 7:
+                    school.giveRaise(); break;
+                case 8:
                     quit = true; break;
             }
         }
@@ -100,8 +102,9 @@ public class Main {
                 "\n3 - View students"+
                 "\n4 - Add grade to a student"+
                 "\n5 - Dispel a student or a staff member"+
-                "\n6 - All accounts
-                "\n7 - Quit");
+                "\n6 - All accounts"+
+                "\n7 - Give raise to a staff member"+
+                "\n8 - Quit");
     }
 }
 final class Account {
