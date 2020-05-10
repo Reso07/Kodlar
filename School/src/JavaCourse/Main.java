@@ -12,11 +12,11 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static ArrayList<Account> accountList = new ArrayList<>();
     private static LocalDateTime now = LocalDateTime.now();
+    private static School school = new School("Robert College");
 
     public static void main(String[] args) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         System.out.println(dtf.format(now));
-        School school = new School("Robert College");
         boolean quit = false;
         instructions1();
         while(!quit) {
@@ -71,7 +71,7 @@ public class Main {
     }
         
     private static void checkStudents() {
-            for(Student s: School.students) {
+            for(Student s: School.getStudents) {
                 if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
                     System.out.println(s.getName()+""+s.getSurname()+" graduated.");
                     school.dispel(s.getName());
