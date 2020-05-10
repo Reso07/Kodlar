@@ -1,6 +1,6 @@
 package JavaCourse;
 
-public abstract class Staff<T> {
+public class Staff<T> {
     private String status, name, surName;
     private long salary;
 
@@ -8,7 +8,9 @@ public abstract class Staff<T> {
         this.status = status; this.name = name; this.surName = surname;
     }
 
-    abstract void setSalary(long amount);
+    public void setSalary(long amount) {
+        this.salary = amount;
+    }
 
     public long getSalary() {
         return salary;
