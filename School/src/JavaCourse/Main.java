@@ -1,4 +1,5 @@
-
+// This app is an admin database rather than a user interface where people log into accounts. The admin manages the school, accounts,
+// etc. using this
 package JavaCourse;
 
 import java.awt.*;
@@ -19,12 +20,7 @@ public class Main {
         boolean quit = false;
         instructions1();
         while(!quit) {
-            for(Student s: School.students) {
-                if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
-                    System.out.println(s.getName()+""+s.getSurname()+" graduated.");
-                    school.dispel(s.getName());
-                }
-            }
+            checkStudents();
             System.out.println("Enter action: "); int action = scanner.nextInt(); scanner.nextLine();
             switch(action) {
                 case 0:
@@ -35,32 +31,17 @@ public class Main {
                     int password = scanner.nextInt();
                     if(status.equals("student")) {
                         accountList.add(new Account(school.registerStudent(),password));
-                    } else if(status.equals("teacher")) {
-                        accountList.add(new Account(school.recruitStaff("teacher"),password));
                     } else {
-                        accountList.add(new Account(school.recruitStaff("other"),password));
-                    }
+                        accountList.add(new Account(school.recruitStaff(status),password));
                     break;
                 case 2:
-                    System.out.println("Enter your name: "); String name = scanner.nextLine();
-                    System.out.println("Enter your numerical password: "); int key = scanner.nextInt();
-                    scanner.nextLine();
-                    if(!findAccount(new Account(name,key))) {
-                        System.out.println("Welcome "+ name);
-                        quit = true;
-                        break;
-                    }
+                    instructions2(); quit = true; break;
             }
         }
         quit = false;
         instructions2();
         while(!quit) {
-            for(Student s: School.students) {
-                if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
-                    System.out.println(s.getName()+""+s.getSurname()+" graduated.");
-                    school.dispel(s.getName());
-                }
-            }
+            checkStudents();
             System.out.println("Enter action: "); int action = scanner.nextInt();
             switch (action) {
                 case 0:
@@ -77,9 +58,23 @@ public class Main {
                 case 5:
                     school.dispel(null); break;
                 case 6:
+                    for(Account a:accountList) {
+                        a.storePassword();
+                    }
+                    break;
+                case 7:
                     quit = true; break;
             }
         }
+    }
+        
+    private static void checkStudents() {
+            for(Student s: School.students) {
+                if(now.getYear()>=s.getYear() && now.getMonthValue()>=7) {
+                    System.out.println(s.getName()+""+s.getSurname()+" graduated.");
+                    school.dispel(s.getName());
+                }
+            }
     }
 
     private static boolean findAccount(Account account) {
@@ -105,7 +100,8 @@ public class Main {
                 "\n3 - View students"+
                 "\n4 - Add grade to a student"+
                 "\n5 - Dispel a student or a staff member"+
-                "\n6 - Quit");
+                "\n6 - All accounts
+                "\n7 - Quit");
     }
 }
 final class Account {
