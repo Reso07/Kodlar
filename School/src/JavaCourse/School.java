@@ -66,12 +66,9 @@ public class School {
         System.out.print("Enter surname: "); String surname = scanner.nextLine();
         System.out.println("Salary: "); int salary = scanner.nextInt(); scanner.nextLine();
         if(findTeacher(name)==null) {
-            staff.add(new Staff(status, name, surname) {
-                @Override
-                void setSalary(long amount) {
-                    amount = salary;
-                }
-            });
+            Staff newstaff = new Staff(status,name,surname);
+            newstaff.setSalary(salary);
+            staff.add(newstaff);
         }
         return name;
     }
