@@ -1,4 +1,4 @@
-package JavaCourse;
+package com.wizard;
 
 import java.util.HashMap;
 import java.util.Map;
