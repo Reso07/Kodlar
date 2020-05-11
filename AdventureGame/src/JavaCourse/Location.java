@@ -7,27 +7,28 @@ public class Location {
     private final int locationID;
     private final String description;
     private final Map<String, Integer> exits;
-
-    public Location(int locationID, String description) {
+// There are improvemnets have been made to make this class immutable in order to prevent instance variables to be edited externally after
+    // they have been initialized. Also a if not null condition has also been set to avoid NullPointerException.
+    protected Location(int locationID, String description, Map<String, Integer> exits) {
         this.locationID = locationID;
         this.description = description;
-        exits = new HashMap<String, Integer>();
-        exits.put("Q",0);
+        if(exits != null) {
+            this.exits = new HashMap<String, Integer>(exits);
+        } else {
+            this.exits = new HashMap<String, Integer>();
+        }
+        this.exits.put("Q",0);
     }
 
-    public String getDescription() {
+    protected String getDescription() {
         return description;
     }
 
-    public Map<String, Integer> getExits() {
+    protected Map<String, Integer> getExits() {
         return new HashMap<String, Integer>(exits);
     }
 
-    public int getLocationID() {
+    protected int getLocationID() {
         return locationID;
-    }
-
-    public void addExit(String direction,int location) {
-        exits.put(direction,location);
     }
 }
