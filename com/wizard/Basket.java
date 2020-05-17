@@ -20,7 +20,7 @@ public class Basket {
         this.name = name;
     }
 
-    public void addToBasket(StockItem item, int quantity) {
+    protected void addToBasket(StockItem item, int quantity) {
         if(item != null && quantity > 0 && item.reserve(quantity)) {
             basket.put(item, basket.getOrDefault(item,0)+quantity);
             cost += item.getPrice() * quantity;
@@ -29,7 +29,7 @@ public class Basket {
         }
     }
 
-    public void unreserve(StockItem item, int quantity) {
+    protected void unreserve(StockItem item, int quantity) {
         if(basket.get(item) != null) {
             item.unreserve(quantity);
             cost -= item.getPrice() * quantity;
@@ -41,11 +41,11 @@ public class Basket {
         }
     }
 
-    public Map<StockItem, Integer> getBasket() {
+    protected Map<StockItem, Integer> getBasket() {
         return Collections.unmodifiableMap(basket);
     }
 
-    public void finish() {
+    protected void finish() {
         for(Map.Entry<StockItem,Integer> i: basket.entrySet()) {
             StockItem item = i.getKey();
             item.unreserve(item.getReserved());
